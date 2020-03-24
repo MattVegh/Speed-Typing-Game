@@ -10,11 +10,13 @@ function App() {
   }
 
   function wordCount(text) {
-    const wordsArray = text.split(' ').length
-    console.log(wordsArray)
-    return wordsArray
-  }
+    const wordsArray = text.trim().split(' ')
+    const filteredArray = wordsArray.filter(word => word !== '').length
 
+    console.log(filteredArray)
+    
+    return filteredArray
+  }
 
   return (
     <div className="App">
