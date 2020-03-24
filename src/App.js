@@ -21,10 +21,10 @@ function App() {
 
   useEffect(() => {
     if (timeRemaining > 0) {
-    setTimeout(() => {
-      setTimeRemaining(time => time - 1)
-    }, 1000)
-  }
+      setTimeout(() => {
+        setTimeRemaining(time => time - 1)
+      }, 1000)
+    }
   }, [timeRemaining])
 
 
