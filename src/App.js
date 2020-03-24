@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   const [words, setWords] = useState('')
   const [timeRemaining, setTimeRemaining] = useState(5)
+  const [isTimeRunning, setisTimeRunning] = useState(false)
 
   function getTypedWords(e) {
     const { value } = e.target
@@ -19,13 +20,20 @@ function App() {
     return filteredArray
   }
 
+  function startGame() {
+    console.log('stuff')
+    setisTimeRunning(true)
+  }
+
   useEffect(() => {
-    if (timeRemaining > 0) {
+    
+    if (isTimeRunning && timeRemaining > 0) {
       setTimeout(() => {
         setTimeRemaining(time => time - 1)
       }, 1000)
     }
-  }, [timeRemaining])
+  
+  }, [timeRemaining, isTimeRunning])
 
 
   return (
@@ -39,7 +47,7 @@ function App() {
 
       <h4>Time Remaining: {timeRemaining}</h4>
 
-      <button onClick={() => wordCount(words)}>Start</button>
+      <button onClick={() => startGame()}>Start</button>
 
       <h1>Word Count: p14c3h01d3r</h1>
 
