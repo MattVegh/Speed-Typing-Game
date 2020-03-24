@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const [words, setWords] = useState('')
+  const [timeRemaining, setTimeRemaining] = useState(5)
 
   function getTypedWords(e) {
     const { value } = e.target
@@ -14,7 +15,7 @@ function App() {
     const filteredArray = wordsArray.filter(word => word !== '').length
 
     console.log(filteredArray)
-    
+
     return filteredArray
   }
 
@@ -27,7 +28,7 @@ function App() {
         value={words}
       />
 
-      <h4>time remaining placeholder</h4>
+      <h4>Time Remaining: {timeRemaining}</h4>
 
       <button onClick={() => wordCount(words)}>Start</button>
 
