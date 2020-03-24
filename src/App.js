@@ -9,17 +9,28 @@ function App() {
     setWords(value)
   }
 
-  console.log(words)
+  function wordCount(text) {
+    const wordsArray = text.split(' ').length
+    console.log(wordsArray)
+    return wordsArray
+  }
+
+
   return (
     <div className="App">
       <h1>How fast do you type?</h1>
+
       <textarea
         onChange={getTypedWords}
         value={words}
       />
+
       <h4>time remaining placeholder</h4>
-      <button>Start</button>
+
+      <button onClick={() => wordCount(words)}>Start</button>
+
       <h1>Word Count: p14c3h01d3r</h1>
+
     </div>
   );
 }
