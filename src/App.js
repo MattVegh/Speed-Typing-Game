@@ -5,13 +5,14 @@ function App() {
   const [words, setWords] = useState('')
   const [timeRemaining, setTimeRemaining] = useState(5)
   const [isTimeRunning, setisTimeRunning] = useState(false)
+  const [wordCount, setWordCount] = useState(0)
 
   function getTypedWords(e) {
     const { value } = e.target
     setWords(value)
   }
 
-  function wordCount(text) {
+  function calculateWordCount(text) {
     const wordsArray = text.trim().split(' ')
     const filteredArray = wordsArray.filter(word => word !== '').length
 
@@ -52,7 +53,7 @@ console.log(isTimeRunning)
 
       <button onClick={() => startGame()}>Start</button>
 
-      <h1>Word Count: p14c3h01d3r</h1>
+      <h1>Word Count: {wordCount}</h1>
 
     </div>
   );
