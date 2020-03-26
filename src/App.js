@@ -25,24 +25,23 @@ function App() {
     setWords('')
   }
 
+  function endGame() {
+    setIsTimeRunning(false)
+    setWordCount(calculateWordCount(words))
+  }
   useEffect(() => {
-    
+
     if (isTimeRunning && timeRemaining > 0) {
       setTimeout(() => {
         setTimeRemaining(time => time - 1)
       }, 1000)
     }
-    
+
     // can also just do "else"
     if (timeRemaining === 0) {
-      setIsTimeRunning(false)
-      const numWords = calculateWordCount(words)
-      setWordCount(numWords)
-      
+      endGame()
     }
   }, [timeRemaining, isTimeRunning])
-
-  console.log('wordCount', wordCount)
 
   return (
     <div className="App">
