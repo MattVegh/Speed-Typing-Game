@@ -21,7 +21,6 @@ function App() {
   }
 
   function startGame() {
-    console.log('stuff')
     setisTimeRunning(true)
   }
 
@@ -32,10 +31,14 @@ function App() {
         setTimeRemaining(time => time - 1)
       }, 1000)
     }
-  
+    
+    // can also just do "else"
+    if (!isTimeRunning && timeRemaining === 0) {
+      setisTimeRunning(false)
+    }
   }, [timeRemaining, isTimeRunning])
 
-
+console.log(isTimeRunning)
   return (
     <div className="App">
       <h1>How fast do you type?</h1>
