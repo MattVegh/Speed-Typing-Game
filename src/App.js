@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   const [words, setWords] = useState('')
   const [timeRemaining, setTimeRemaining] = useState(5)
-  const [isTimeRunning, setisTimeRunning] = useState(false)
+  const [isTimeRunning, setIsTimeRunning] = useState(false)
   const [wordCount, setWordCount] = useState(0)
 
   function getTypedWords(e) {
@@ -16,13 +16,11 @@ function App() {
     const wordsArray = text.trim().split(' ')
     const filteredArray = wordsArray.filter(word => word !== '').length
 
-    console.log(filteredArray)
-
     return filteredArray
   }
 
   function startGame() {
-    setisTimeRunning(true)
+    setIsTimeRunning(true)
   }
 
   useEffect(() => {
@@ -34,12 +32,15 @@ function App() {
     }
     
     // can also just do "else"
-    if (!isTimeRunning && timeRemaining === 0) {
-      setisTimeRunning(false)
+    if (timeRemaining === 0) {
+      setIsTimeRunning(false)
+      const numWords = calculateWordCount(words)
+      setWordCount(numWords)
     }
   }, [timeRemaining, isTimeRunning])
 
-console.log(isTimeRunning)
+  console.log('wordCount', wordCount)
+  
   return (
     <div className="App">
       <h1>How fast do you type?</h1>
