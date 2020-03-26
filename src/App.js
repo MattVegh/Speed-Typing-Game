@@ -28,6 +28,7 @@ function App() {
     setTimeRemaining(STARTING_TIME)
     setWords('')
     console.log(textBoxRef)
+    textBoxRef.current.disabled = false
     textBoxRef.current.focus()
   }
 
