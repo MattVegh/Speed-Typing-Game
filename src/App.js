@@ -21,6 +21,8 @@ function App() {
 
   function startGame() {
     setIsTimeRunning(true)
+    setTimeRemaining(5)
+    setWords('')
   }
 
   useEffect(() => {
@@ -36,11 +38,12 @@ function App() {
       setIsTimeRunning(false)
       const numWords = calculateWordCount(words)
       setWordCount(numWords)
+      
     }
   }, [timeRemaining, isTimeRunning])
 
   console.log('wordCount', wordCount)
-  
+
   return (
     <div className="App">
       <h1>How fast do you type?</h1>
