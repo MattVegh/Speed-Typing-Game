@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const STARTING_TIME = 5
+
   const [words, setWords] = useState('')
-  const [timeRemaining, setTimeRemaining] = useState(5)
+  const [timeRemaining, setTimeRemaining] = useState(STARTING_TIME)
   const [isTimeRunning, setIsTimeRunning] = useState(false)
   const [wordCount, setWordCount] = useState(0)
 
@@ -21,7 +23,7 @@ function App() {
 
   function startGame() {
     setIsTimeRunning(true)
-    setTimeRemaining(5)
+    setTimeRemaining(STARTING_TIME)
     setWords('')
   }
 
@@ -54,7 +56,11 @@ function App() {
 
       <h4>Time Remaining: {timeRemaining}</h4>
 
-      <button onClick={() => startGame()}>Start</button>
+      <button 
+        onClick={() => startGame()}
+        disabled={isTimeRunning}
+      >Start
+      </button>
 
       <h1>Word Count: {wordCount}</h1>
 
