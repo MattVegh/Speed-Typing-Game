@@ -43,7 +43,6 @@ function useWordGame() {
             }, 1000)
         }
 
-        // can also just do "else"
         if (timeRemaining === 0) {
             endGame()
         }
