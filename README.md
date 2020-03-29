@@ -4,7 +4,7 @@ A short and simple typing calculator made to show knowledge in React hooks.
 
 ## Live Link
 
-[Speed Typing Game]()
+[Speed Typing Game](https://speed-typing-game.mdv240.now.sh)
 
 ## Screenshots
 
